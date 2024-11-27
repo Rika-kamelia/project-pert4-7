@@ -1,6 +1,6 @@
 <?php
 
-require './../config/db.php';
+require _DIR_ . '/../config/db.php';
 
 if(isset($_POST['submit'])) {
 
@@ -30,3 +30,4 @@ if(isset($_POST['submit'])) {
 
     echo "registrasi berhasil";
 }
+?>
