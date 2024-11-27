@@ -26,22 +26,43 @@ if (isset($_POST['update'])) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Produk</title>
+    <!-- Link ke Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-    <h1>Edit Produk</h1>
-    <form method="post">
-        <label>Nama Produk:</label>
-        <input type="text" name="name" value="<?= $row['name']; ?>" required><br><br>
+<body class="bg-light">
+    <div class="container mt-5">
+        <div class="card shadow p-4" style="max-width: 600px; margin: auto;">
+            <h3 class="text-center text-primary mb-4">Edit Produk</h3>
+            <form method="post">
+                <!-- Input Nama Produk -->
+                <div class="mb-3">
+                    <label for="name" class="form-label">Nama Produk</label>
+                    <input type="text" class="form-control" id="name" name="name" value="<?= $row['name']; ?>" required>
+                </div>
+                <!-- Input Harga -->
+                <div class="mb-3">
+                    <label for="price" class="form-label">Harga</label>
+                    <input type="number" class="form-control" id="price" name="price" value="<?= $row['price']; ?>" required>
+                </div>
+                <!-- Input Gambar -->
+                <div class="mb-3">
+                    <label for="image" class="form-label">Gambar URL</label>
+                    <input type="text" class="form-control" id="image" name="image" value="<?= $row['image']; ?>">
+                </div>
+                <!-- Tombol Submit -->
+                <div class="d-grid">
+                    <button type="submit" name="update" class="btn btn-primary">Update</button>
+                </div>
+            </form>
+            <div class="text-center mt-3">
+                <a href="show.php" class="btn btn-secondary">Kembali ke Data Produk</a>
+            </div>
+        </div>
+    </div>
 
-        <label>Harga:</label>
-        <input type="text" name="price" value="<?= $row['price']; ?>" required><br><br>
-
-        <label>Gambar URL:</label>
-        <input type="text" name="image" value="<?= $row['image']; ?>"><br><br>
-
-        <button type="submit" name="update">Update</button>
-    </form>
-    <a href="index.php">Kembali ke Data Produk</a>
+    <!-- Link ke Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

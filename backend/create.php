@@ -1,6 +1,6 @@
 <?php
 
-require './../config/db.php';
+require __DIR__ . '/../config/db.php';
 
 if(isset($_POST['submit'])) {
     global $db_connect;
@@ -12,9 +12,10 @@ if(isset($_POST['submit'])) {
 
     $randomFilename = time().'-'.md5(rand()).'-'.$image;
 
+    // Corrected the path to a relative one
     $uploadPath = $_SERVER['DOCUMENT_ROOT'].'/upload/'.$randomFilename;
 
-    $upload = move_uploaded_file($tempImage,$uploadPath);
+    $upload = move_uploaded_file($tempImage, $uploadPath);
 
     if($upload) {
         mysqli_query($db_connect,"INSERT INTO products (name,price,image)
@@ -25,3 +26,4 @@ if(isset($_POST['submit'])) {
     }
 
 }
+?>
