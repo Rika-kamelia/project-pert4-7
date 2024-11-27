@@ -1,8 +1,8 @@
 <?php
 
-require './../config/db.php';
+require __DIR__ . '/../config/db.php';
 
-if(isset($_POST['submit'])) {
+if (isset($_POST['submit'])) {
 
     global $db_connect;
 
@@ -11,22 +11,26 @@ if(isset($_POST['submit'])) {
     $password = $_POST['password'];
     $confirm = $_POST['confirm'];
 
-    if($confirm != $password) {
-        echo "password tidak sesuai dengan konfirmasi password";
-        die;
+    if ($confirm != $password) {
+        echo "Password tidak sesuai dengan konfirmasi password.";
+        exit();
     }
 
-    $usedEmail = mysqli_query($db_connect,"SELECT email FROM users WHERE email = '$email'");
-    if(mysqli_num_rows($usedEmail) > 0) {
-        echo "email sudah digunakan";
-        die;
+    $usedEmail = mysqli_query($db_connect, "SELECT email FROM users WHERE email = '$email'");
+    if (mysqli_num_rows($usedEmail) > 0) {
+        echo "Email sudah digunakan.";
+        exit();
     }
 
-    $password = password_hash($password,PASSWORD_DEFAULT);
-    $created_at = date('Y-m-d H:i:s',time());
-        
-    $users = mysqli_query($db_connect,"INSERT INTO users (name,email, password,created_at) VALUES
-                            ('$name','$email','$password','$created_at')");
+    $password = password_hash($password, PASSWORD_DEFAULT);
+    $created_at = date('Y-m-d H:i:s');
 
-    echo "registrasi berhasil";
+    $users = mysqli_query($db_connect, "INSERT INTO users (name, email, password, created_at) VALUES ('$name', '$email', '$password', '$created_at')");
+
+    if ($users) {
+        echo "Registrasi berhasil.";
+    } else {
+        echo "Terjadi kesalahan saat registrasi.";
+    }
 }
+?>
