@@ -18,24 +18,24 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `pemweb-db`
+-- Database: pemweb-db
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Table structure for table users
 --
 
-CREATE TABLE `users` (
-  `id` int NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `role` enum('admin','user') NOT NULL DEFAULT 'user',
-  `password` varchar(255) NOT NULL,
-  `photo` varchar(255) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT NULL
+CREATE TABLE users (
+  id int NOT NULL,
+  name varchar(255) NOT NULL,
+  email varchar(255) NOT NULL,
+  role enum('admin','user') NOT NULL DEFAULT 'user',
+  password varchar(255) NOT NULL,
+  photo varchar(255) DEFAULT NULL,
+  created_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -43,21 +43,21 @@ CREATE TABLE `users` (
 --
 
 --
--- Indexes for table `users`
+-- Indexes for table users
 --
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `email` (`email`);
+ALTER TABLE users
+  ADD PRIMARY KEY (id),
+  ADD UNIQUE KEY email (email);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT for table users
 --
-ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+ALTER TABLE users
+  MODIFY id int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
