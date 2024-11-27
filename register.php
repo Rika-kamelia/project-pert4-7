@@ -37,6 +37,7 @@
                     <button type="submit" name="submit" class="btn btn-primary">Register</button>
                 </div>
             </form>
+            <!-- Link ke halaman Login -->
             <div class="text-center mt-3">
                 <p>Sudah punya akun? <a href="index.php">Login di sini</a></p>
             </div>

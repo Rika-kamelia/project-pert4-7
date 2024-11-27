@@ -13,7 +13,8 @@
             <div class="card shadow-lg p-4" style="width: 100%; max-width: 500px;">
                 <h1 class="text-primary">Selamat Datang Admin</h1>
                 <p class="text-secondary">Anda telah berhasil masuk ke sistem. Nikmati hari Anda!</p>
-                <a href="show.php" class="btn btn-primary mt-3">Masuk ke Dashboard</a>
+                <!-- Tombol navigasi -->
+                <a href="dashboard.php" class="btn btn-primary mt-3">Masuk ke Dashboard</a>
                 <a href="index.php" class="btn btn-outline-danger mt-3">Logout</a>
             </div>
         </div>
